@@ -1,0 +1,41 @@
+.timeline { border-radius:18px; padding:20px 35px; }
+.timeline-item { display:grid;grid-template-columns:110px 15px 1fr;gap:18px;padding:27px 0; }
+.timeline-item + .timeline-item { border-top:1px solid var(--line); }
+.timeline-date { font-size:11px;color:#ff5c78;font-weight:700; }
+.timeline-node { width:9px;height:9px;border-radius:50%;background:var(--red-bright);box-shadow:0 0 16px rgba(255,49,93,.8);margin-top:4px; }
+.timeline-item h4 { font:700 16px "Space Grotesk"; margin:0; }
+.timeline-item b { display:block;color:var(--muted);font-size:10px;margin-top:4px; }
+.timeline-item p { color:var(--muted);font-size:11px;line-height:1.7;max-width:700px; }
+@media(max-width:780px) {
+  .timeline { padding:15px; }
+  .timeline-item { grid-template-columns:72px 12px 1fr;gap:9px; }
+}
+
+@media (max-width: 700px) {
+  .timeline {
+    padding-left: 18px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .timeline-date {
+    font-size: 10px;
+  }
+}
+
+
+.theme-light .section-heading h3,
+.theme-light .section-heading h3 span,
+.theme-light .about-copy h3,
+.theme-light .contact-copy h3 {
+  color: #11141b !important;
+}
+
+.theme-light .section-heading p,
+.theme-light .about-copy p,
+.theme-light .contact-copy p {
+  color: #59616e !important;
+}

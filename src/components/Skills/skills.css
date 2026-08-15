@@ -1,0 +1,70 @@
+.skills-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.skill-card { padding:20px; border-radius:15px; }
+.skill-wide { grid-column:span 2; }
+.skill-title { font-weight:700; font-size:12px; display:flex; gap:9px; align-items:center; margin-bottom:16px; }
+.skill-title span { width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:rgba(225,29,72,.1);color:#ff5c78; }
+@media(max-width:780px) {
+  .skills-grid { grid-template-columns:1fr; }
+  .skill-wide { grid-column:auto; }
+}
+
+
+
+.theme-light .section-heading h3,
+.theme-light .about-card h3,
+.theme-light .contact-copy h3,
+.theme-light .role-card h4,
+.theme-light .project-content h4,
+.theme-light .timeline-item h4,
+.theme-light .skill-title,
+.theme-light .cert-copy b {
+  color: #171820;
+}
+
+
+@media (max-width: 1000px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .skills-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid > :last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+
+  .skill-card {
+    min-width: 0;
+  }
+
+  .tags {
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 10px;
+    padding: 7px 9px;
+  }
+}
+
+
+.theme-light .section-heading h3,
+.theme-light .section-heading h3 span,
+.theme-light .about-copy h3,
+.theme-light .contact-copy h3 {
+  color: #11141b !important;
+}
+
+.theme-light .section-heading p,
+.theme-light .about-copy p,
+.theme-light .contact-copy p {
+  color: #59616e !important;
+}

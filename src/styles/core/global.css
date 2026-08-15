@@ -1,0 +1,521 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+  --bg: #060608;
+  --panel: rgba(13, 13, 18, 0.76);
+  --panel-solid: #0d0d12;
+  --text: #f7f7f8;
+  --muted: #9b9ca7;
+  --line: rgba(255, 255, 255, 0.1);
+  --red: #e11d48;
+  --red-bright: #ff315d;
+  --red-deep: #7f1028;
+  --cyan: #22d3ee;
+  --shadow: 0 25px 90px rgba(0, 0, 0, 0.3);
+}
+
+.theme-light {
+  --bg: #f5f6f8;
+  --panel: rgba(255, 255, 255, 0.94);
+  --panel-solid: #ffffff;
+  --text: #171820;
+  --muted: #5f6470;
+  --line: rgba(18, 22, 30, 0.12);
+  --red: #d41446;
+  --red-bright: #c8103f;
+  --red-deep: #8f0d2d;
+  --cyan: #087f96;
+  --shadow: 0 25px 70px rgba(30, 30, 50, 0.10);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+.app { min-height: 100vh; overflow-x: hidden; background: var(--bg); position: relative; }
+.container { width: min(1240px, calc(100% - 40px)); margin: 0 auto; }
+.section { padding: 105px 0 25px; position: relative; z-index: 1; scroll-margin-top: 90px; }
+.glass {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+.section-label {
+  font: 800 10px "Space Grotesk";
+  letter-spacing: 2.6px;
+  color: #ff5c78;
+  margin-bottom: 12px;
+}
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 28px;
+}
+.section-heading h3 {
+  font: 700 35px "Space Grotesk";
+  letter-spacing: -1.6px;
+  margin: 0;
+}
+.muted { color: var(--muted); font-size: 11px; }
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #a70f32, var(--red));
+  color: white;
+  padding: 11px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 12px 35px rgba(225, 29, 72, .18);
+}
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.025);
+  border-radius: 8px;
+  padding: 11px 16px;
+  font-weight: 650;
+  font-size: 12px;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  font-size: 10px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.06);
+  color: #c5c6ce;
+}
+.ambient {
+  position: fixed;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: .1;
+  pointer-events: none;
+  z-index: 0;
+}
+.ambient-one { background: var(--red); top: -220px; left: -220px; }
+.ambient-two { background: #087c91; top: 600px; right: -260px; }
+
+@media (max-width: 780px) {
+  .container { width: min(100% - 28px, 1240px); }
+  .section { padding-top: 80px; }
+  .section-heading { display: block; }
+  .section-heading .muted { display: block; margin-top: 9px; }
+}
+
+
+/* ---------- Light-mode readability ---------- */
+.theme-light .tag {
+  color: #3e424c;
+  background: #f0f1f4;
+  border-color: rgba(20, 24, 32, 0.10);
+}
+.theme-light .secondary-button {
+  color: #1b1d24;
+  background: #ffffff;
+  border-color: rgba(20, 24, 32, 0.14);
+}
+.theme-light .primary-button,
+.theme-light .cv-button {
+  color: #ffffff;
+}
+.theme-light .muted,
+.theme-light .stat small,
+.theme-light .project-content p,
+.theme-light .timeline-item p,
+.theme-light .contact-copy > p,
+.theme-light .contact-details a,
+.theme-light .contact-details > div {
+  color: #5f6470;
+}
+.theme-light .glass {
+  background: rgba(255,255,255,.94);
+  border-color: rgba(20,24,32,.11);
+}
+.theme-light .icon-button {
+  color: #252832;
+  background: #ffffff;
+  border-color: rgba(20,24,32,.14);
+}
+.theme-light .social-links a,
+.theme-light .footer-links a {
+  color: #555b66;
+  background: #ffffff;
+  border-color: rgba(20,24,32,.12);
+}
+.theme-light .floating-card,
+.theme-light .availability {
+  color: #353942;
+  background: rgba(255,255,255,.96);
+  border-color: rgba(20,24,32,.13);
+  box-shadow: 0 20px 70px rgba(30,30,50,.16);
+}
+.theme-light .floating-card b {
+  color: #171820;
+}
+.theme-light .contact-form input,
+.theme-light .contact-form textarea {
+  color: #171820;
+  background: #ffffff;
+  border-color: rgba(20,24,32,.14);
+}
+.theme-light .contact-form input::placeholder,
+.theme-light .contact-form textarea::placeholder {
+  color: #858a94;
+}
+.theme-light .certificate-viewer {
+  color: #171820;
+}
+
+
+/* =========================================================
+   RESPONSIVE FOUNDATION
+   Desktop → laptop → tablet → mobile
+   ========================================================= */
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+#root,
+.app {
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  max-width: 100%;
+}
+
+.container {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+section {
+  scroll-margin-top: 90px;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    width: min(100% - 40px, 1000px);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 28px, 680px);
+  }
+
+  section {
+    scroll-margin-top: 76px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+}
+
+
+/* Prevent accidental grid/flex overflow from long content. */
+.grid,
+.skills-grid,
+.projects-grid,
+.cert-grid,
+.contact-grid,
+.about-grid,
+.stats,
+.nav-inner,
+.hero {
+  min-width: 0;
+}
+
+.grid > *,
+.skills-grid > *,
+.projects-grid > *,
+.cert-grid > *,
+.contact-grid > *,
+.about-grid > *,
+.stats > *,
+.hero > * {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   FINAL THEME CONTRAST LAYER
+   These variables and selectors intentionally come last so
+   light/dark mode cannot inherit the wrong text color.
+   ========================================================= */
+
+/* DARK MODE */
+.theme-dark {
+  --bg: #050507;
+  --panel: #0b0b10;
+  --panel-solid: #0b0b10;
+  --text: #f7f7f9;
+  --heading: #ffffff;
+  --muted: #a6a8b2;
+  --subtle: #777b87;
+  --line: rgba(255,255,255,.12);
+  --red: #e11d48;
+  --red-bright: #ff3b67;
+  --red-deep: #8f0d2d;
+  --cyan: #20c5df;
+  --gold: #f2c14e;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* LIGHT MODE */
+.theme-light {
+  --bg: #f5f7fa;
+  --panel: #ffffff;
+  --panel-solid: #ffffff;
+  --text: #20242d;
+  --heading: #11141b;
+  --muted: #59616e;
+  --subtle: #737b88;
+  --line: rgba(17,20,27,.13);
+  --red: #d41446;
+  --red-bright: #e11d48;
+  --red-deep: #9b1032;
+  --cyan: #087f96;
+  --gold: #a66b00;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* Any regular text that was previously hard-coded white must become readable
+   in light mode. */
+.theme-light h1,
+.theme-light h2,
+.theme-light h3,
+.theme-light h4,
+.theme-light h5,
+.theme-light h6,
+.theme-light strong,
+.theme-light b,
+.theme-light label,
+.theme-light .section-title,
+.theme-light .section-heading,
+.theme-light .section-heading h3,
+.theme-light .hero-copy h1,
+.theme-light .hero-copy h2,
+.theme-light .about-copy h3,
+.theme-light .contact-copy h3,
+.theme-light .project-content h4,
+.theme-light .timeline-item h4,
+.theme-light .skill-title,
+.theme-light .cert-copy b,
+.theme-light .role-card h4 {
+  color: var(--heading) !important;
+}
+
+.theme-light p,
+.theme-light li,
+.theme-light small,
+.theme-light .muted,
+.theme-light .stat small,
+.theme-light .hero-copy p,
+.theme-light .project-content p,
+.theme-light .timeline-item p,
+.theme-light .contact-copy p,
+.theme-light .contact-details,
+.theme-light .contact-details span,
+.theme-light .contact-details a {
+  color: var(--muted) !important;
+}
+
+/* Light-mode labels and navigation */
+.theme-light .eyebrow,
+.theme-light .section-label,
+.theme-light .section-kicker {
+  color: var(--red) !important;
+}
+
+.theme-light .nav-links a,
+.theme-light .brand,
+.theme-light .brand span {
+  color: var(--heading) !important;
+}
+
+.theme-light .nav-links a.active,
+.theme-light .nav-links a:hover {
+  color: var(--red) !important;
+}
+
+/* Light cards */
+.theme-light .glass,
+.theme-light .skill-card,
+.theme-light .project-card,
+.theme-light .cert-card,
+.theme-light .about-card,
+.theme-light .profile-card,
+.theme-light .education-card,
+.theme-light .contact-form,
+.theme-light .stat {
+  background: #ffffff !important;
+  color: var(--text) !important;
+  border-color: var(--line) !important;
+}
+
+/* Skill/project/certificate metadata */
+.theme-light .tag {
+  color: #3c424d !important;
+  background: #f1f3f6 !important;
+  border-color: rgba(17,20,27,.11) !important;
+}
+
+.theme-light .project-meta,
+.theme-light .project-number,
+.theme-light .cert-meta,
+.theme-light .cert-year {
+  color: #68717e !important;
+}
+
+/* Form controls */
+.theme-light input,
+.theme-light textarea,
+.theme-light select {
+  color: #171a21 !important;
+  background: #ffffff !important;
+  border-color: rgba(17,20,27,.16) !important;
+}
+
+.theme-light input::placeholder,
+.theme-light textarea::placeholder {
+  color: #858c97 !important;
+}
+
+/* Theme-safe buttons: bright red in BOTH modes and always white text. */
+.cv-button,
+.theme-dark .cv-button,
+.theme-light .cv-button,
+.primary-button,
+.theme-dark .primary-button,
+.theme-light .primary-button,
+.button-primary,
+.theme-dark .button-primary,
+.theme-light .button-primary {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #a30d33 0%, #e11d48 100%) !important;
+  border-color: transparent !important;
+  box-shadow: 0 10px 28px rgba(225,29,72,.22);
+}
+
+.cv-button:hover,
+.theme-dark .cv-button:hover,
+.theme-light .cv-button:hover,
+.primary-button:hover,
+.theme-dark .primary-button:hover,
+.theme-light .primary-button:hover,
+.button-primary:hover,
+.theme-dark .button-primary:hover,
+.theme-light .button-primary:hover {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #be123c 0%, #f02a55 100%) !important;
+  box-shadow: 0 14px 34px rgba(225,29,72,.30);
+}
+
+.theme-light .secondary-button,
+.theme-light .button-secondary {
+  color: #20242d !important;
+  background: #ffffff !important;
+  border-color: rgba(17,20,27,.15) !important;
+}
+
+.theme-light .secondary-button:hover,
+.theme-light .button-secondary:hover {
+  color: #11141b !important;
+  background: #f0f2f5 !important;
+}
+
+/* Theme controls themselves */
+.theme-light .icon-button,
+.theme-light .theme-toggle,
+.theme-light .nav-menu-button {
+  color: #20242d !important;
+  background: #ffffff !important;
+  border-color: rgba(17,20,27,.14) !important;
+}
+
+.theme-dark .icon-button,
+.theme-dark .theme-toggle,
+.theme-dark .nav-menu-button {
+  color: #f7f7f9 !important;
+}
+
+/* Floating hero labels */
+.theme-light .floating-card,
+.theme-light .availability {
+  color: #2a2f38 !important;
+  background: rgba(255,255,255,.97) !important;
+  border-color: rgba(17,20,27,.14) !important;
+  box-shadow: 0 18px 55px rgba(20,25,35,.16);
+}
+
+.theme-light .floating-card b {
+  color: #11141b !important;
+}
+
+/* Footer */
+.theme-light .footer,
+.theme-light footer {
+  color: #59616e;
+}
+
+.theme-light .footer a,
+.theme-light .footer-links a {
+  color: #59616e !important;
+}
+
+/* Ensure the root never gets the browser's default white text in light mode. */
+.theme-light,
+.theme-light * {
+  text-shadow: none;
+}
+
+.theme-light svg {
+  color: currentColor;
+}

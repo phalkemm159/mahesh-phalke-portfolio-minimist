@@ -1,0 +1,73 @@
+.projects-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; }
+.project-card { border-radius:17px; overflow:hidden; transition:transform .25s ease,border-color .25s ease; }
+.project-card:hover { transform:translateY(-6px); border-color:rgba(255,49,93,.28); }
+.project-art { height:220px; position:relative; display:grid; place-items:center; overflow:hidden; }
+.project-art::before {
+  content:""; position:absolute; inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);
+  background-size:28px 28px; mask-image:linear-gradient(to bottom,transparent,#000 30%,transparent);
+}
+.project-art.red { background:radial-gradient(circle,#6e172b,#0e0d13 68%); }
+.project-art.cyan { background:radial-gradient(circle,#124957,#0b1013 68%); }
+.project-art.gold { background:radial-gradient(circle,#604b18,#11100b 68%); }
+.art-symbol { font-size:100px; z-index:1; text-shadow:0 0 50px rgba(255,49,93,.55); }
+.art-number { position:absolute;right:15px;top:13px;color:#777;font:600 10px "Space Grotesk"; }
+.project-content { padding:22px; }
+.project-category { font:800 9px "Space Grotesk"; color:#ff5c78; letter-spacing:1.6px; }
+.project-content h4 { font:700 20px "Space Grotesk"; margin:8px 0; }
+.project-content p { color:var(--muted);font-size:12px;line-height:1.7;min-height:62px; }
+.project-links { display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:15px;margin-top:18px; }
+.project-links a { display:flex;gap:6px;align-items:center;color:#aaa;font-size:11px; }
+.project-links a:hover { color:#ff5c78; }
+@media(max-width:1050px) {
+  .projects-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:780px) {
+  .projects-grid { grid-template-columns:1fr; }
+}
+
+@media (max-width: 900px) {
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+
+  .project-visual {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-card {
+    padding: 12px;
+  }
+
+  .project-visual {
+    min-height: 220px;
+  }
+
+  .project-content {
+    padding: 12px 6px 8px;
+  }
+
+  .project-content h4 {
+    font-size: 22px;
+  }
+
+  .project-actions {
+    flex-wrap: wrap;
+  }
+}
+
+
+.theme-light .section-heading h3,
+.theme-light .section-heading h3 span,
+.theme-light .about-copy h3,
+.theme-light .contact-copy h3 {
+  color: #11141b !important;
+}
+
+.theme-light .section-heading p,
+.theme-light .about-copy p,
+.theme-light .contact-copy p {
+  color: #59616e !important;
+}

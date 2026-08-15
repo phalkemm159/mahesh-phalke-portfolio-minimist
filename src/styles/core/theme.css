@@ -1,0 +1,22 @@
+.theme-light .navbar {
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+}
+.theme-light .floating-card {
+  background: rgba(255,255,255,.88);
+}
+.theme-light .floating-card b { color: var(--text); }
+
+
+@media (max-width: 768px) {
+  .ambient {
+    opacity: .45;
+    filter: blur(70px);
+  }
+}
+
+@media (max-width: 480px) {
+  .ambient {
+    opacity: .28;
+    filter: blur(55px);
+  }
+}

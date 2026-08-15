@@ -1,0 +1,260 @@
+.navbar {
+  height: 76px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  background: transparent;
+  font-weight: 700;
+}
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--red-deep), var(--red-bright));
+  color: white;
+  box-shadow: 0 0 28px rgba(225,29,72,.35);
+  font-family: "Space Grotesk";
+}
+.nav-links { display: flex; height: 100%; align-items: center; gap: 2px; }
+.nav-links button {
+  height: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 0 12px;
+  font-size: 13px;
+  position: relative;
+}
+.nav-links button:hover,
+.nav-links button.active { color: var(--text); }
+.nav-links button.active::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 0;
+  height: 2px;
+  background: var(--red-bright);
+}
+.nav-actions { display: flex; align-items: center; gap: 9px; }
+.icon-button {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  display: grid;
+  place-items: center;
+}
+.cv-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #a70f32, var(--red));
+  color: white;
+  padding: 11px 16px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.mobile-menu { display: none; }
+
+@media (max-width: 1050px) {
+  .nav-links button { padding: 0 8px; font-size: 12px; }
+}
+@media (max-width: 780px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 14px;
+    right: 14px;
+    height: auto;
+    padding: 10px;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--panel-solid);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links button { height: 42px; text-align: left; padding: 0 13px; }
+  .nav-links button.active::after { display: none; }
+  .cv-button { display: none; }
+  .mobile-menu { display: grid; }
+}
+
+/* ---------- Theme-safe navbar controls ---------- */
+.cv-button {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #9d0d30 0%, #e11d48 100%);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 10px 30px rgba(225,29,72,.22);
+}
+.cv-button:hover {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #b30f37 0%, #f02a55 100%);
+  transform: translateY(-1px);
+}
+.theme-light .cv-button {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   NAVBAR RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .nav-inner {
+    min-height: 68px;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .cv-button {
+    padding: 10px 13px;
+  }
+}
+
+@media (max-width: 760px) {
+  .nav-inner {
+    min-height: 64px;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 14px;
+    right: 14px;
+    z-index: 30;
+    padding: 12px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: color-mix(in srgb, var(--panel-solid) 96%, transparent);
+    box-shadow: 0 22px 60px rgba(0,0,0,.28);
+    backdrop-filter: blur(18px);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 11px 12px;
+    border-radius: 9px;
+  }
+
+  .nav-menu-button {
+    display: inline-grid !important;
+    place-items: center;
+  }
+
+  .nav-actions .cv-button {
+    display: none;
+  }
+
+  .nav-inner {
+    position: relative;
+  }
+}
+
+@media (max-width: 430px) {
+  .brand {
+    font-size: 14px;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
+  .theme-toggle,
+  .nav-menu-button {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+
+/* Final CV button sizing */
+.cv-button {
+  min-height: 42px;
+  padding: 10px 17px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 12px;
+  border-radius: 9px;
+}
+
+@media (max-width: 760px) {
+  .cv-button {
+    min-height: 40px;
+    padding: 9px 13px !important;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 430px) {
+  .cv-button {
+    min-height: 38px;
+    padding: 8px 11px !important;
+    font-size: 10px;
+  }
+}
+
+
+/* MPP brand mark */
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .3px;
+  flex: 0 0 38px;
+}
+
+@media (max-width: 430px) {
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+    font-size: 11px;
+  }
+}
