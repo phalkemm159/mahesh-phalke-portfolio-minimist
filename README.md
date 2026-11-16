@@ -46,6 +46,4 @@ public/resumes/
 public/certificates/
 ```
 
-Add the actual certificate images using the paths configured in `siteData.js`.
-
-GitHub, LinkedIn and project demo URLs remain placeholders until the actual URLs are supplied.
+## Made with ♥️ by Mahesh Phalke
